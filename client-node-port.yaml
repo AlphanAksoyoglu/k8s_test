@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort
+  ports:
+    - port: 3050 # this is for another pod to access the selected the pod
+      targetPort: 3000 #this is the target port to expose in the selected pod
+      nodePort: 31515 #this is the port of the node to expose
+  # apply to all components with component web
+  selector:
+    component: web

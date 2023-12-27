@@ -1,0 +1,16 @@
+
+apiVersion: v1
+# type of object, our object type here is a Pod
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web
+spec:
+  # here we are defining which container this is going to run
+  containers:
+    - name: client
+      image: stephengrider/multi-client
+      # which port to expose on the container
+      ports:
+        - containerPort: 3000
